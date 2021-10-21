@@ -1,0 +1,579 @@
+@font-face {
+  font-family: "HuiFont";
+  src: url("../font/HuiFont29.eot?") format('eot'),
+       url("../font/HuiFont29.woff") format('woff');
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+  pointer-events:none;
+  cursor: url(images/cursor.png)6 6,auto;
+  font-family: "HuiFont";
+}
+
+.hover{
+  text-align: center;
+  cursor: url(images/hover.png)13 13,auto;
+}
+
+body　div{
+  pointer-events: auto;
+}
+
+#container{
+  width: 100%;
+  max-width: 1280px;
+  min-width: 512px;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+}
+
+/*//////初期設定////*/
+#image{
+  padding-top: 2rem;
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+  height: 800px;
+  padding-bottom: 50px;
+}
+
+img{
+  position: absolute;
+  width: 800px;
+}
+
+#hoge{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media only screen and (min-width: 960px) {
+  #image{
+    height: 960px;
+    width: 960px;
+  }
+
+  img{
+    width: 960px;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  #image{
+    height: 93vh;
+    width: 93vh;
+  }
+}
+
+/*///////背景//////*/
+#house{
+  width: 100%;
+}
+
+#ie{
+  position: absolute;
+  background-image: url(images/ie.png);
+  width: 100%;
+  height: 175.5px;
+  background-size: 293.5px,175.5px;
+  top:200px;
+  transform: translate(0, 0);
+  left: 0;
+}
+
+#zimen{
+  position: absolute;
+  top:375.5px;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+
+  left: 0;
+}
+
+#title{
+  width: 13.5%;
+  top:9%;
+  left: 14%;
+}
+
+.sora{
+  width: 71px;
+  left:84%;
+  top : 6%;
+}
+
+.window{
+  width: 21.5%;
+  left:64%;
+  top:19%;
+}
+
+#curtain{
+  pointer-events: auto;
+}
+
+#reload{
+  width: 8%;
+  top:86%;
+  left: 1%;
+  pointer-events:auto;
+}
+
+#reload:hover{
+  transition: all 0.3s;
+  opacity: 0.5;
+}
+
+#help_btn{
+  width: 8%;
+  top:86%;
+  left: 10%;
+  pointer-events:auto;
+}
+
+#help_btn:hover{
+  transition: all 0.3s;
+  opacity: 0.5;
+}
+
+#play{
+  position: absolute;
+  top:95%;
+  left:2%;
+  color: #fafafa;
+  pointer-events: auto;
+}
+
+#play a{
+  opacity: 0.7;
+  font-size: 13px;
+  margin-left: 1rem;
+  color: #fafafa;
+  pointer-events: auto;
+}
+
+#play a i{
+  margin-left: 0.2rem;
+}
+
+#play a:hover{
+  opacity: 0.9;
+}
+
+#clock img{
+  width: 19%;
+  top:78%;
+  left: 73%;
+  opacity: 0.8;
+}
+
+#grid{
+  position: absolute;
+  background-image: url(images/grid.png);
+  background-size: 55.5px,33px;
+  left: 0px;
+}
+
+#rain{
+  position: absolute;
+  background-size: 100px;
+  left: 0px;
+}
+
+.zoom{
+  width: 30px;
+  z-index: 100;
+  position: fixed;
+  top: 30px;
+  pointer-events: auto;
+}
+
+#zoomin{
+  right: 70px;
+}
+
+#zoomout{
+  right: 30px;
+}
+
+@media only screen and (min-width: 960px) {
+
+  #ie{
+    height: 210.6px;
+    background-size: 352.2px,210.6px;
+    top:240px;
+  }
+
+  #zimen{
+    top:450.6px;
+  }
+}
+
+@media only screen and (max-width: 800px) {/*////スマホ用/////*/
+
+  #title{
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 80px;
+    z-index: 10;
+  }
+
+  #clock img{
+    position: fixed;
+    width: 80px;
+    top:auto;
+    bottom:20px;
+    left: auto;
+    right: 20px;
+    z-index: 10;
+    opacity: 1;
+  }
+
+  #reload{
+    width: 45px;
+    position: fixed;
+    left: 20px;
+    top: auto;
+    bottom: 20px;
+    z-index: 10;
+  }
+
+  #help_btn{
+    width: 45px;
+    position: fixed;
+    left: 75px;
+    top: auto;
+    bottom: 20px;
+    z-index: 10;
+  }
+
+}
+
+
+
+
+
+/*//////手前の家具///////*/
+.temae{
+  z-index: 1;
+}
+
+#door{
+  width: 12.7%;
+  top: 30.3%;
+  left: 8.5%;
+  pointer-events: auto;
+}
+
+.closet{
+  width: 24.8%;
+  top: 11.2%;
+  left: 38%;
+  pointer-events: auto;
+}
+
+.seat{
+  width: 14.5%;
+  left : 52%;
+  top : 67%;
+}
+
+.pc{
+  width: 9%;
+  top: 62%;
+  left: 47%;
+  pointer-events:auto;
+}
+
+#table{
+  width: 24.3%;
+  top: 59%;
+  left: 37%;
+}
+
+#mouse{
+  width: 2.3%;
+  top : 66%;
+  left:53.5%;
+}
+
+.tv{
+  width: 10.5%;
+  top:43%;
+  left: 26%;
+  pointer-events:auto;
+}
+
+iframe{
+  position: absolute;
+  transform: scaleY(1.3) skewY(-22deg);
+  width: 9.5%;
+  height: 6%;
+  top: 46.8%;
+  left: 26.5%;
+}
+
+#switch{
+  width: 2%;
+  top:42%;
+  left:23%;
+  pointer-events:auto;
+}
+
+#futon{
+  width: 33%;
+  top:42.5%;
+  left:55%;
+}
+
+#bed{
+  width: 43.6%;
+  top: 42.5%;
+  left: 52.8%;
+}
+
+#book{
+  width: 2.6%;
+  top:53%;
+  left:90%;
+}
+
+#rimokon{
+  width: 4.6%;
+  top: 63%;
+  left: 53%;
+}
+
+#cloth{
+  width: 6.1%;
+  top: 64%;
+  left: 41%;
+}
+
+/*//////キャラ//////*/
+#character1 {
+    width: 8%;
+    opacity: 0;
+}
+
+#character {
+    width: 8%;
+    opacity: 1;
+}
+
+#p_chara{
+  width: 15%;
+  z-index: 1;
+  top: 59%;
+  left: 50%;
+}
+
+#pc_up{
+  width: 14.2%;
+  z-index: 1;
+  top: 50%;
+  left: 49%;
+}
+
+#pc_down{
+  width: 16.4%;
+  z-index: 1;
+  top: 46.4%;
+  left: 49.3%;
+}
+
+#read{
+  width: 23.5%;
+  left: 68%;
+  top:43.5%;
+}
+
+#read_up{
+  width: 27%;
+  left: 66%;
+  top:41.3%;
+}
+
+#read_down{
+  width: 25.4%;
+  left: 67%;
+  top:42.6%;
+}
+
+#sleep{
+  width: 30.2%;
+  top: 42.5%;
+  left:56%;
+}
+
+#sleep_up{
+  width: 33.1%;
+  top: 40.9%;
+  left:54.9%;
+}
+
+#sleep_down{
+  width: 32%;
+  top: 41.7%;
+  left:55.7%;
+}
+
+#syugei{
+  width: 11.7%;
+  top: 60.5%;
+  left: 53.3%;
+  z-index: 1;
+}
+
+#syugei_up{
+  width: 24.5%;
+  top: 46.5%;
+  left: 41%;
+  z-index: 1;
+}
+
+#syugei_down{
+  width: 24.5%;
+  top: 46.7%;
+  left: 41%;
+  z-index: 1;
+}
+
+#sumaho{
+  width: 22.8%;
+  top:45%;
+  left: 65%;
+}
+
+#sumaho_up{
+  width: 24.3%;
+  top:41%;
+  left: 63%;
+}
+
+#sumaho_down{
+  width: 23.4%;
+  top:40.2%;
+  left: 64.4%;
+}
+
+#syomei{
+  width: 7.2%;
+  top: 42%;
+  left: 19%;
+}
+
+/*@media only screen and (min-width: 960px) {
+  #character1 {
+      width: 79.2px;
+  }
+
+  #character {
+    width: 79.2px;
+  }
+
+  #read{
+    width: 195.6px;
+    left: 636px;
+    top:444px;
+  }
+
+  #sleep{
+    width: 295.8px;
+    left: 546px;
+    top:462px;
+  }
+
+  #g_chara{
+    width: 144px;
+    top: 654px;
+    left: 480px;
+  }
+
+  #sumaho{
+    width: 115.2px;
+    top:444px;
+    left: 660px;
+  }
+}*/
+
+
+/*//////ヘルプ///////*/
+#container2{
+  position: absolute;
+  width: 100%;
+  max-width: 1280px;
+  min-width: 512px;
+  top: 0;
+}
+
+#help{
+  padding-top: 2rem;
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+  height: 800px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+
+  display: none;
+  z-index: 9;
+}
+
+#h_bg{
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (min-width: 960px) {
+  #help{
+    height: 93vh;
+    width: 93vh;
+  }
+}
+
+#help div{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top:25%;
+}
+
+#help p{
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  line-height: 1.5rem;
+  white-space: nowrap;
+}
+
+#help #toha{
+  padding-left: 120px;
+  margin-bottom: 8%;
+}
+
+#h_title{
+  position: absolute;
+  width: 70px;
+  left: 45%;
+  top: 23%;
+}
+
+#h_hover{
+  width: 200px;
+  left: 50%;
+  top: 68%;
+  transform: translateX(-40%);
+}
