@@ -22,7 +22,7 @@ function re(){
   s_flag = false;
   sumaho_f = false;
 
-  dark = 100;
+  dark = 100 - curtain_dark;
   $('#p_monitor').html('<img class="temae pc dark" id="pc" src="images/p_off.png">');
   $('#t_monitor').html('<img src="images/t_off.png" class="tv dark" style="filter:britress(' + dark + ');">');
   $('.dark').css('filter','brightness(' + dark + '%)');
