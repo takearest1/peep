@@ -9,6 +9,7 @@ var s_flag = false;
 var dark = 100;
 var imgwid;
 var t_random = Math.floor(Math.random()* (8 - 1) + 1);
+var curtain_dark = 0;
 
 $(function(){
   $('.pc').click( function(){
@@ -82,10 +83,14 @@ $(function(){
   $('#curtain').click( function(){
     if(curtain == false){
       $('#curtain').attr('src', 'images/curtain_close.gif');
+      countDown();
+      curtain_dark = 15;
       curtain = true;
       console.log("open");
     }else{
       $('#curtain').attr('src', 'images/curtain_open.gif');
+      countUp();
+      curtain_dark = 0;
       curtain = false;
       console.log("close");
     };
@@ -143,19 +148,67 @@ $(function() {
 
 
 function syoumei_on() {
-  dark = 100;
+  dark = 100  - curtain_dark;
   s_flag = false;
 }
 
 function syoumei_off() {
   if(6 <= th && th <= 11){
-    dark = 75 - weather_dark;
+    dark = 75 - weather_dark - curtain_dark;
   }else if(12 <= th && th <= 16){
-    dark = 85 - weather_dark;
+    dark = 85 - weather_dark - curtain_dark;
   }else if(17 <= th && th <= 18){
-    dark = 65 - weather_dark;
+    dark = 65 - weather_dark - curtain_dark;
   }else{
-    dark = 50 - weather_dark;
+    dark = 50 - weather_dark - curtain_dark;
   }
+  console.log(weather_dark);
   s_flag = true;
 }
+
+
+function countUp(){
+	var countSpeed = 10;
+
+		var self = $(this),
+		countMax = 15,//ゴール
+    thisCount = 0,
+		countTimer;
+
+		function timer(){
+			countTimer = setInterval(function(){
+				var countNext = thisCount++;//1ずつ数値が増えていく
+        dark = dark + 1;
+        console.log(thisCount);
+
+				if(countNext == countMax){//現時点の数値とゴールの数値が一緒になった時に、
+					clearInterval(countTimer);//カウントを停止（指定した関数のsetIntervalをストップさせる）
+				}
+			},countSpeed);
+		}
+		timer();
+
+};
+
+function countDown(){
+	var countSpeed = 10;
+
+		var self = $(this),
+		countMax = 15,//ゴール
+    thisCount = 0,
+		countTimer;
+
+		function timer(){
+			countTimer = setInterval(function(){
+				var countNext = thisCount++;//1ずつ数値が増えていく
+        dark = dark - 1;
+        console.log(thisCount);
+
+				if(countNext == countMax){//現時点の数値とゴールの数値が一緒になった時に、
+					clearInterval(countTimer);//カウントを停止（指定した関数のsetIntervalをストップさせる）
+				}
+			},countSpeed);
+		}
+		timer();
+
+};
