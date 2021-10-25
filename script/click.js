@@ -25,6 +25,7 @@ $(function(){
 
   $('.tv').click( function tv(){
     console.log(dark);
+    if(g_flag == false){
       if(t_flag == false){
         if(t_random == 1){
           $('#t_monitor').html('<img src="images/t_on.gif" class="tv">');
@@ -55,6 +56,16 @@ $(function(){
         t_flag = false;
         $('.tv').css('filter','brightness(' + dark + '%)');
       }
+    }else if(g_flag == true){
+      if(t_flag == false){
+        $('#t_monitor').html('<img src="images/t_game.gif" class="tv">');
+        t_flag = true;
+      }else{
+        $('#t_monitor').html('<img src="images/t_off.png" class="tv dark" style="filter:britress(' + dark + ');">');
+        t_flag = false;
+        $('.tv').css('filter','brightness(' + dark + '%)');
+      }
+    }
     console.log(dark);
   });
 
