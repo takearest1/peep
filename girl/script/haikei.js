@@ -164,6 +164,7 @@ function haikei(){
     ie.style.opacity = '1';
     ie.style.backgroundImage = "url(images/ie_e.png)";
     zimen.style.backgroundColor = '#54565F';
+      zimen.style.opacity = '1';
     grid.style.opacity = '0.1';
   }else{
     win.setAttribute('src', 'images/win_ni' + win_tenki);
