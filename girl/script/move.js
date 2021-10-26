@@ -5,7 +5,7 @@ $(function () {
     if(th > 7){
       move();
     };
-  },20000);
+  },30000);
 
 });
 
@@ -267,7 +267,7 @@ function move() {
     chara.innerHTML = '<img id="sumaho_up" class="dark character" src="images/sumaho_up.gif?' +(new Date).getTime()+ '">';
     setTimeout(function () {
       chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
-      $("#character").css({'top':'40%','left':'65%','z-index':'1'});//スタート地点
+      $("#character").css({'top':'40%','left':'66%','z-index':'1'});//スタート地点
 
       ///////スマホから立った後の動作
       if(random2 == 2){//パソコンしに行く
