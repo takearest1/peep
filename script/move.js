@@ -1,580 +1,413 @@
-@font-face {
-  font-family: "HuiFont";
-  src: url("font/HuiFont29.eot?") format('eot'),
-       url("font/HuiFont29.woff") format('woff');
-}
+var random2;
+var walking = 2200;
+$(function () {
+  setInterval(function () {
+    if(th > 7){
+      move();
+    };
+  },30000);//移動までの間
 
-*{
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-  outline: none;
-  pointer-events: none;
-  cursor: url(images/cursor.png)6 6,auto;
-  font-family: "HuiFont";
-}
+});
 
-.hover{
-  text-align: center;
-  cursor: url(images/hover.png)13 13,auto;
-}
 
-body　div{
-  pointer-events: auto;
-}
+function move() {
+  random2 = Math.floor(Math.random()* (7 - 1) + 1);//移動先の決定
 
-#container{
-  width: 100%;
-  max-width: 1280px;
-  min-width: 512px;
-  margin: 0 auto;
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-}
+  /*-------PC-------*/
+  if(random == 2){
+    if (random2 == 1 || random2 == 2 || random2 == 4) {
+      move();
+    }
+    //random2 = 6;///////あとで絶対に消すやつ
 
-/*//////初期設定////*/
-#image{
-  position: relative;
-  margin: 0 auto;
-  width: 93vh;
-  height: 93vh;
-}
+    ///////立ち上がる動作
+    chara.innerHTML = '<img id="pc_up" class="dark character" src="images/pc_up.gif?' +(new Date).getTime()+ '">';
+    setTimeout(function () {
+      pm.innerHTML = '<img class="temae pc dark" id="pc" src="images/p_off.png">';
+      p_flag = false;
+      random = 0;
+      $("#mouse").css('opacity', '1');
+    },400);
+    setTimeout(function () {
+      if(random2 == 6 && s_flag == false){
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+        $("#character").css({'top':'52.5%','left':'50%','z-index':'1'});//スタート地点
+      }else{
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk1.gif"></div>';
+        $("#character").css({'top':'52.5%','left':'50%','z-index':'1','transform':'scale(-1, 1)'});//スタート地点
+      }
 
-img{
-  margin-top:2rem;
-  position: absolute;
-}
+      ///////PCから立った後の動作
+      if(random2 == 3){//本読みに行く
+      $('#character')
+        .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
+        setTimeout(function () {
+            chara.innerHTML = '<img id="read_down" class="dark character" src="images/read_down.gif?' +(new Date).getTime()+ '">';
+            $("#book").css('opacity', '0');
+            setTimeout(function () {
+              random = 3;
+              read_f = false;
+              read();
+            },1500);//座るのにかかる時間
+        },2200);//移動にかかる時間
+      };
 
-#hoge{
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
-}
+      if(random2 == 5){//スマホしに行く
+      $('#character')
+        .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
+        setTimeout(function () {
+            chara.innerHTML = '<img id="sumaho_down" class="dark character" src="images/sumaho_down.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              random = 5;
+              sumaho_f = false;
+              sumaho();
+            },1500);//座るのにかかる時間
+        },2200);//移動にかかる時間
+      };
 
-@media only screen and (max-width: 960px) {
-  #image{
-    height: 800px;
-    width: 800px;
-  }
-}
+      if(random2 == 6){//寝る
+        if(s_flag == true){
+          $('#character')
+            .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
+            walking = 2200;
+        }else{
+          $('#character')
+            .animate({'top':'57.5%','left':'40%'},2000);
+          setTimeout(function () {
+            $('#character').attr('src', 'images/walk1.gif');
+            $('#character')
+              .animate({'top':'42%','left':'18%'},3000);
+            setTimeout(function () {
+              chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '">';
+              setTimeout(function () {
+                syoumei_off();
+              },500)
+              setTimeout(function () {
+                chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+                $('#character').css({'top':'42%','left':'18%','transform':'scale(-1,1)','z-index':'1'},2200);
+                $('#character')
+                  .animate({'top':'57.5%','left':'40%'},3000);
+                  setTimeout(function () {
+                    $('#character').attr('src', 'images/walk1.gif');
+                    $('#character')
+                      .animate({'top':'40%','left':'66.9%'},2200);
+                  },3000);
+              },1500);
+            },3000);
+          },2000);
+          walking = 11700;
+        };
 
-@media only screen and (max-height: 900px) {
-  #image{
-    height: 800px;
-    width: 800px;
-  }
+        setTimeout(function () {
+            chara.innerHTML = '<img id="sleep_down" class="dark character" src="images/sleep_down.gif?' +(new Date).getTime()+ '">';
+            $("#futon").css('opacity', '0');
+            setTimeout(function () {
+              random = 6;
+              sleep_f = false;
+              sleep();
+            },2000);//座るのにかかる時間
+        },walking);//移動にかかる時間
+      };
 
-  body{
-    padding-bottom: 4rem;
-  }
-}
 
-/*///////背景//////*/
-#house{
-  width: 100%;
-}
+    },2000);//立ち上がるのにかかる時間
+  };
 
-#ie{
-  position: absolute;
-  background-image: url(images/ie.png);
-  width: 100%;
-  height: 175.5px;
-  background-size: 293.5px,175.5px;
-  top:200px;
-  transform: translate(0, 0);
-  left: 0;
-}
 
-#zimen{
-  position: absolute;
-  top:375.5px;
-  width: 100%;
-  height: 100px;
-  background-color: #fff;
+  /*-------本-------*/
+  if(random == 3){
+    if (random2 == 1 || random2 == 3 || random2 == 5|| random2 == 6) {
+      move();
+    }
 
-  left: 0;
-}
+    ///////立ち上がる動作
+    chara.innerHTML = '<img id="read_up" class="dark character" src="images/read_up.gif?' +(new Date).getTime()+ '">';
+    setTimeout(function () {
+      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+      $("#character").css({'top':'40%','left':'66.9%','z-index':'1'});//スタート地点
+      $("#book").css('opacity', '1');
 
-#title{
-  width: 13.5%;
-  top:9%;
-  left: 14%;
-}
+      ///////本から立った後の動作
+      if(random2 == 2){//パソコンしに行く
+        $('#character')
+          .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
+        setTimeout(function () {
+            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              $("#mouse").css('opacity', '0');
+              random = 2;
+              pc_f = false;
+              pc();
+              console.log("pc");
+            },1000);//座るのにかかる時間
+        },2000);//移動にかかる時間
+      };
 
-.sora{
-  width: 71px;
-  left:84%;
-  top : 6%;
-}
+      if(random2 == 4){//ゲームしに行く
+        $('#character')
+          .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
+        setTimeout(function () {
+            chara.innerHTML = '<img id="game_down" class="dark character" src="images/game_down.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              tm = document.getElementById('t_monitor');
+              tm.innerHTML = '<img src="images/t_game.gif" class="tv">';
+              t_flag = true;
+            },800);
+            $("#game_rimokon").css('opacity', '0');
+            setTimeout(function () {
+              random = 4;
+              g_flag = false;
+              game();
+            },2000);//座るのにかかる時間
+        },2000);//移動にかかる時間
+      };
 
-.window{
-  width: 21.5%;
-  left:64%;
-  top:19%;
-}
 
-#curtain{
-  pointer-events: auto;
-}
-
-#reload{
-  width: 8%;
-  top:86%;
-  left: 1%;
-  pointer-events:auto;
-}
-
-#reload:hover{
-  transition: all 0.3s;
-  opacity: 0.5;
-}
-
-#help_btn{
-  width: 8%;
-  top:86%;
-  left: 10%;
-  pointer-events:auto;
-}
-
-#help_btn:hover{
-  transition: all 0.3s;
-  opacity: 0.5;
-}
-
-#play{
-  position: absolute;
-  top:102%;
-  left:2%;
-  color: #fafafa;
-  pointer-events: auto;
-}
-
-#play a{
-  opacity: 0.7;
-  font-size: 13px;
-  margin-left: 1rem;
-  color: #fafafa;
-  pointer-events: auto;
-}
-
-#play a i{
-  margin-left: 0.2rem;
-}
-
-#play a:hover{
-  opacity: 0.9;
-}
-
-#clock img{
-  width: 19%;
-  top:78%;
-  left: 73%;
-  opacity: 0.8;
-}
-
-#grid{
-  position: absolute;
-  background-image: url(images/grid.png);
-  background-size: 55.5px,33px;
-  left: 0px;
-}
-
-#rain{
-  position: absolute;
-  background-size: 100px;
-  left: 0px;
-}
-
-.zoom{
-  width: 30px;
-  z-index: 100;
-  position: fixed;
-  top: 30px;
-  pointer-events: auto;
-}
-
-#zoomin{
-  right: 70px;
-}
-
-#zoomout{
-  right: 30px;
-}
-
-@media only screen and (min-width: 960px) {
-
-  #ie{
-    height: 210.6px;
-    background-size: 352.2px,210.6px;
-    top:240px;
+    },1800);//立ち上がるのにかかる時間
   }
 
-  #zimen{
-    top:450.6px;
-  }
-}
 
-@media only screen and (max-width: 800px) {/*////スマホ用/////*/
+  /*-------ゲーム-------*/
+  if(random == 4){
+    if (random2 == 1 || random2 == 2 || random2 == 4) {
+      move();
+    }
 
-  #title{
-    position: fixed;
-    top: 30px;
-    left: 30px;
-    width: 80px;
-    z-index: 10;
-  }
+    ///////立ち上がる動作
+    chara.innerHTML = '<img id="game_up" class="dark character" src="images/game_up.gif?' +(new Date).getTime()+ '">';
+      var tm = document.getElementById('t_monitor');
+      tm.innerHTML = '<img src="images/t_off.png" class="tv dark">';
+      t_flag = false;
+      g_flag = false;
+      random = 0;
+    setTimeout(function () {
+      $("#game_rimokon").css('opacity', '1');
+      if(random2 == 6 && s_flag == false){
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+        $("#character").css({'top':'52.5%','left':'50%','z-index':'1'});//スタート地点
+      }else{
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk1.gif"></div>';
+        $("#character").css({'top':'52.5%','left':'50%','z-index':'1','transform':'scale(-1, 1)'});//スタート地点
+      }
 
-  #clock img{
-    position: fixed;
-    width: 80px;
-    top:auto;
-    bottom:20px;
-    left: auto;
-    right: 20px;
-    z-index: 10;
-    opacity: 1;
-  }
+      ///////ゲームから立った後の動作
 
-  #reload{
-    width: 45px;
-    position: fixed;
-    left: 20px;
-    top: auto;
-    bottom: 20px;
-    z-index: 10;
-  }
+      if(random2 == 3){//本読みに行く
+      $('#character')
+        .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
+        setTimeout(function () {
+            chara.innerHTML = '<img id="read_down" class="dark character" src="images/read_down.gif?' +(new Date).getTime()+ '">';
+            $("#book").css('opacity', '0');
+            setTimeout(function () {
+              random = 3;
+              read_f = false;
+              read();
+            },1500);//座るのにかかる時間
+        },2200);//移動にかかる時間
+      };
 
-  #help_btn{
-    width: 45px;
-    position: fixed;
-    left: 75px;
-    top: auto;
-    bottom: 20px;
-    z-index: 10;
-  }
+      if(random2 == 5){//スマホしに行く
+      $('#character')
+        .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
+        setTimeout(function () {
+            chara.innerHTML = '<img id="sumaho_down" class="dark character" src="images/sumaho_down.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              random = 5;
+              sumaho_f = false;
+              sumaho();
+            },1500);//座るのにかかる時間
+        },2200);//移動にかかる時間
+      };
 
-}
+      var walking = 2200;
+      if(random2 == 6){//寝る
+        if(s_flag == true){
+          $('#character')
+            .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
+            walking = 2200;
+        }else{
+          $('#character')
+            .animate({'top':'57.5%','left':'40%'},2000);
+          setTimeout(function () {
+            $('#character').attr('src', 'images/walk1.gif');
+            $('#character')
+              .animate({'top':'42%','left':'18%'},3000);
+            setTimeout(function () {
+              chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '">';
+              setTimeout(function () {
+                syoumei_off();
+              },500)
+              setTimeout(function () {
+                chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+                $('#character').css({'top':'42%','left':'18%','transform':'scale(-1,1)','z-index':'1'},2200);
+                $('#character')
+                  .animate({'top':'57.5%','left':'40%'},3000);
+                  setTimeout(function () {
+                    $('#character').attr('src', 'images/walk1.gif');
+                    $('#character')
+                      .animate({'top':'40%','left':'66.9%'},2200);
+                  },3000);
+              },1500);
+            },3000);
+          },2000);
+          walking = 11700;
+        };
 
-
-
-
-
-/*//////手前の家具///////*/
-.temae{
-  z-index: 1;
-}
-
-#door{
-  width: 12.7%;
-  top: 29.3%;
-  left: 8.5%;
-  pointer-events: auto;
-}
-
-.closet{
-  width: 24.8%;
-  top: 8.2%;
-  left: 38%;
-  pointer-events: auto;
-}
-
-.seat{
-  width: 16%;
-  left : 50.5%;
-  top : 69%;
-}
-
-.pc{
-  width: 9%;
-  top: 63%;
-  left: 45.5%;
-  pointer-events:auto;
-}
-
-#table{
-  width: 25%;
-  top: 59%;
-  left: 37%;
-}
-
-#mouse{
-  width: 2.3%;
-  top : 66%;
-  left:53.5%;
-}
-
-.tv{
-  width: 10.5%;
-  top:43.5%;
-  left: 26%;
-  pointer-events:auto;
-}
-
-iframe{
-  position: absolute;
-  transform: scaleY(1.3) skewY(-22.5deg);
-  width: 9.5%;
-  height: 7%;
-  top: 50.7%;
-  left: 26.5%;
-}
-
-#switch{
-  width: 2%;
-  top:42%;
-  left:23%;
-  pointer-events:auto;
-}
-
-#futon{
-  width: 33%;
-  top:42.5%;
-  left:55%;
-}
-
-#bed{
-  width: 43.6%;
-  top: 42.5%;
-  left: 52.8%;
-}
-
-#book{
-  width: 5.1%;
-  top: 55%;
-  left: 86%;
-}
-
-#game_rimokon{
-  width: 4.1%;
-  top: 68%;
-  left: 41.5%;
-}
-
-#rimokon{
-  width: 4.6%;
-  top: 63.5%;
-  left: 53%;
-}
+        setTimeout(function () {
+            chara.innerHTML = '<img id="sleep_down" class="dark character" src="images/sleep_down.gif?' +(new Date).getTime()+ '">';
+            $("#futon").css('opacity', '0');
+            setTimeout(function () {
+              random = 6;
+              sleep_f = false;
+              sleep();
+            },2000);//座るのにかかる時間
+        },walking);//移動にかかる時間
+      }
 
 
-/*//////キャラ//////*/
-#character1 {
-    width: 8%;
-    opacity: 0;
-}
-
-#character {
-    width: 8%;
-    opacity: 1;
-}
-
-#p_chara{
-  width: 14%;
-  z-index: 1;
-  pointer-events: none;
-  top: 60%;
-  left: 49%;
-}
-
-#pc_up{
-  width: 14.9%;
-  top: 52.5%;
-  left: 48.1%;
-  z-index: 1;
-}
-
-#pc_down{
-  width: 18.2%;
-  top: 45%;
-  left: 48.7%;
-  z-index: 1;
-
-}
-
-#read{
-  width: 20.5%;
-  left: 66%;
-  top:46.5%;
-}
-
-#read_up{
-  width: 24.7%;
-  top: 40%;
-  left: 66.5%;
-}
-
-#read_down{
-  width: 25%;
-  top: 39.7%;
-  left: 66%;
-}
-
-#sleep{
-  width: 31%;
-  top: 44%;
-  left:57%;
-}
-
-#sleep_up{
-  width: 32.8%;
-  top: 40%;
-  left:55%;
-}
-
-#sleep_down{
-  width: 32.8%;
-  top: 40.1%;
-  left:55.2%;
-}
-
-#g_chara{
-  width: 15%;
-  top: 63%;
-  left: 48.5%;
-  z-index: 1;
-}
-
-#game_up{
-  width: 22%;
-  top: 52%;
-  left: 41.5%;
-  z-index: 1;
-}
-
-#game_down{
-  width: 24.2%;
-  top: 45.7%;
-  left: 41.5%;
-  z-index: 1;
-}
-
-#sumaho{
-  width: 12%;
-  top:46.5%;
-  left: 69%;
-}
-
-#sumaho_up{
-  width: 13.1%;
-  top:41%;
-  left: 67.5%;
-}
-
-#sumaho_down{
-  width: 18.1%;
-  top:43.3%;
-  left: 66.7%;
-}
-
-#syomei{
-  width: 8.3%;
-  top: 42%;
-  left: 18%;
-}
-
-/*@media only screen and (min-width: 960px) {
-  #character1 {
-      width: 79.2px;
+    },2500);//立ち上がるのにかかる時間
   }
 
-  #character {
-    width: 79.2px;
+  /*-------スマホ-------*/
+  if(random == 5){
+    console.log("スマホから" + random2);
+    if (random2 == 1 || random2 == 3 || random2 == 5|| random2 == 6) {
+      move();
+    }
+
+    ///////立ち上がる動作
+    chara.innerHTML = '<img id="sumaho_up" class="dark character" src="images/sumaho_up.gif?' +(new Date).getTime()+ '">';
+    setTimeout(function () {
+      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+      $("#character").css({'top':'42%','left':'65.5%','z-index':'1'});//スタート地点
+
+      ///////スマホから立った後の動作
+      if(random2 == 2){//パソコンしに行く
+        $('#character')
+          .animate({'top':'45%','left':'60%'},1000);//ゴール地点 //移動にかかる時間
+        setTimeout(function () {
+            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              random = 2;
+              $("#mouse").css('opacity', '0');
+              pc_f = false;
+              pc();
+              console.log("pc");
+            },1000);//座るのにかかる時間
+          },1000);//移動にかかる時間
+        };
+
+        if(random2 == 4){//ゲームしに行く
+          $('#character')
+            .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
+          setTimeout(function () {
+              chara.innerHTML = '<img id="game_down" class="dark character" src="images/game_down.gif?' +(new Date).getTime()+ '">';
+              setTimeout(function () {
+                tm = document.getElementById('t_monitor');
+                tm.innerHTML = '<img src="images/t_game.gif" class="tv">';
+                t_flag = true;
+              },800);
+              $("#game_rimokon").css('opacity', '0');
+              setTimeout(function () {
+                random = 4;
+                g_flag = false;
+                game();
+              },2000);//座るのにかかる時間
+          },2000);//移動にかかる時間
+        };
+
+
+    },1000);//立ち上がるのにかかる時間
   }
 
-  #read{
-    width: 195.6px;
-    left: 636px;
-    top:444px;
+  /*-------ベッド-------*/
+  if(random == 6){
+    if (random2 == 1 || random2 == 3 || random2 == 5|| random2 == 6) {
+      move();
+    }
+
+    ///////立ち上がる動作
+    chara.innerHTML = '<img id="sleep_up" class="dark character" src="images/sleep_up.gif?' +(new Date).getTime()+ '">';
+    setTimeout(function () {
+      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+      $("#futon").css('opacity', '1');
+      $("#character").css({'top':'40%','left':'68.7%','z-index':'1'});//スタート地点
+
+      if(s_flag == true){
+        $('#character')
+          .animate({'top':'57.5%','left':'40%'},3500);
+        setTimeout(function () {
+          $('#character').attr('src', 'images/walk1.gif');
+          $('#character')
+            .animate({'top':'42%','left':'18%'},3000);
+          setTimeout(function () {
+            chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              syoumei_on();
+            },500)
+            setTimeout(function () {
+              chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+              $('#character').css({'top':'42%','left':'18%','transform':'scale(-1,1)','z-index':'1'},2200);
+              $('#character')
+                .animate({'top':'57.5%','left':'40%'},3000);
+                setTimeout(function () {
+                  $('#character').attr('src', 'images/walk1.gif');
+                },3000);
+            },1500)
+          },3000)
+        },3500);
+        walking = 11000;
+      }else{
+        walking = 0;
+      };
+
+
+
+
+      setTimeout(function () {
+
+
+
+
+      ///////ベッドから立った後の動作
+      if(random2 == 2){//パソコンしに行く
+        $('#character')
+          .animate({'top':'45%','left':'60%'},1500);//ゴール地点 //移動にかかる時間
+        setTimeout(function () {
+            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              random = 2;
+              $("#mouse").css('opacity', '0');
+              pc_f = false;
+              pc();
+              console.log("pc");
+            },1000);//座るのにかかる時間
+        },1500);//移動にかかる時間
+      };
+
+      if(random2 == 4){//ゲームしに行く
+        $('#character')
+          .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
+        setTimeout(function () {
+            chara.innerHTML = '<img id="game_down" class="dark character" src="images/game_down.gif?' +(new Date).getTime()+ '">';
+            setTimeout(function () {
+              tm = document.getElementById('t_monitor');
+              tm.innerHTML = '<img src="images/t_game.gif" class="tv">';
+              t_flag = true;
+            },800);
+            $("#game_rimokon").css('opacity', '0');
+            setTimeout(function () {
+              random = 4;
+              g_flag = false;
+              game();
+            },2000);//座るのにかかる時間
+        },2000);//移動にかかる時間
+      };
+
+
+      },walking);
+    },3800);//立ち上がるのにかかる時間
   }
 
-  #sleep{
-    width: 295.8px;
-    left: 546px;
-    top:462px;
-  }
 
-  #g_chara{
-    width: 144px;
-    top: 654px;
-    left: 480px;
-  }
-
-  #sumaho{
-    width: 115.2px;
-    top:444px;
-    left: 660px;
-  }
-}*/
-
-
-/*//////ヘルプ///////*/
-#container2{
-  position: absolute;
-  width: 100%;
-  max-width: 1280px;
-  min-width: 512px;
-  top: 0;
-}
-
-#help{
-  padding-top: 2rem;
-  position: relative;
-  margin: 0 auto;
-  width: 800px;
-  height: 800px;
-  padding-bottom: 50px;
-  margin: 0 auto;
-
-  display: none;
-  z-index: 9;
-}
-
-#h_bg{
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-@media only screen and (min-width: 960px) {
-  #help{
-    height: 93vh;
-    width: 93vh;
-  }
-}
-
-#help div{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top:25%;
-}
-
-#help p{
-  text-align: center;
-  z-index: 1;
-  color: #fff;
-  margin-bottom: 1.5rem;
-  line-height: 1.5rem;
-  white-space: nowrap;
-}
-
-#help #toha{
-  padding-left: 120px;
-  margin-bottom: 8%;
-}
-
-#h_title{
-  position: absolute;
-  width: 70px;
-  left: 45%;
-  top: 23%;
-}
-
-#h_hover{
-  width: 200px;
-  left: 50%;
-  top: 68%;
-  transform: translateX(-40%);
-}
+}//このプログラム全体のしっぽ
