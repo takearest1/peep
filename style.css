@@ -10,12 +10,9 @@
   list-style: none;
   text-decoration: none;
   outline: none;
+  pointer-events: none;
   cursor: url(images/cursor.png)6 6,auto;
   font-family: "HuiFont";
-}
-
-main *{
-  pointer-events: none;
 }
 
 .hover{
@@ -37,17 +34,15 @@ body　div{
 
 /*//////初期設定////*/
 #image{
-  padding-top: 2rem;
   position: relative;
   margin: 0 auto;
-  width: 800px;
-  height: 800px;
-  padding-bottom: 50px;
+  width: 93vh;
+  height: 93vh;
 }
 
 img{
+  margin-top:2rem;
   position: absolute;
-  width: 800px;
 }
 
 #hoge{
@@ -58,21 +53,21 @@ img{
   height: 100vh;
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (max-width: 960px) {
   #image{
-    height: 960px;
-    width: 960px;
-  }
-
-  img{
-    width: 960px;
+    height: 800px;
+    width: 800px;
   }
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (max-height: 900px) {
   #image{
-    height: 93vh;
-    width: 93vh;
+    height: 800px;
+    width: 800px;
+  }
+
+  body{
+    padding-bottom: 4rem;
   }
 }
 
@@ -150,7 +145,7 @@ img{
 
 #play{
   position: absolute;
-  top:95%;
+  top:102%;
   left:2%;
   color: #fafafa;
   pointer-events: auto;
@@ -273,22 +268,22 @@ img{
 
 #door{
   width: 12.7%;
-  top: 30.3%;
+  top: 29.3%;
   left: 8.5%;
   pointer-events: auto;
 }
 
 .closet{
   width: 24.8%;
-  top: 11.2%;
+  top: 8.2%;
   left: 38%;
   pointer-events: auto;
 }
 
 .seat{
   width: 16%;
-  left : 51%;
-  top : 68%;
+  left : 50.5%;
+  top : 69%;
 }
 
 .pc{
@@ -312,17 +307,17 @@ img{
 
 .tv{
   width: 10.5%;
-  top:43%;
+  top:43.5%;
   left: 26%;
   pointer-events:auto;
 }
 
 iframe{
   position: absolute;
-  transform: scaleY(1.3) skewY(-22deg);
+  transform: scaleY(1.3) skewY(-22.5deg);
   width: 9.5%;
-  height: 6%;
-  top: 46.8%;
+  height: 7%;
+  top: 50.7%;
   left: 26.5%;
 }
 
@@ -347,13 +342,13 @@ iframe{
 
 #book{
   width: 5.1%;
-  top: 53.8%;
+  top: 55%;
   left: 86%;
 }
 
 #game_rimokon{
   width: 4.1%;
-  top: 66.3%;
+  top: 68%;
   left: 41.5%;
 }
 
@@ -392,7 +387,7 @@ iframe{
 
 #pc_down{
   width: 18.2%;
-  top: 47%;
+  top: 45%;
   left: 48.7%;
   z-index: 1;
 
@@ -436,7 +431,7 @@ iframe{
 
 #g_chara{
   width: 15%;
-  top: 62%;
+  top: 63%;
   left: 48.5%;
   z-index: 1;
 }
@@ -450,7 +445,7 @@ iframe{
 
 #game_down{
   width: 24.2%;
-  top: 46%;
+  top: 45.7%;
   left: 41.5%;
   z-index: 1;
 }
@@ -463,8 +458,8 @@ iframe{
 
 #sumaho_up{
   width: 13.1%;
-  top:42.5%;
-  left: 67%;
+  top:41%;
+  left: 67.5%;
 }
 
 #sumaho_down{
