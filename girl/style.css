@@ -34,17 +34,15 @@ body　div{
 
 /*//////初期設定////*/
 #image{
-  padding-top: 2rem;
   position: relative;
   margin: 0 auto;
-  width: 800px;
-  height: 800px;
-  padding-bottom: 50px;
+  width: 93vh;
+  height: 93vh;
 }
 
 img{
+  margin-top:2rem;
   position: absolute;
-  width: 800px;
 }
 
 #hoge{
@@ -55,21 +53,21 @@ img{
   height: 100vh;
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (max-width: 960px) {
   #image{
-    height: 960px;
-    width: 960px;
-  }
-
-  img{
-    width: 960px;
+    height: 800px;
+    width: 800px;
   }
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (max-height: 900px) {
   #image{
-    height: 93vh;
-    width: 93vh;
+    height: 800px;
+    width: 800px;
+  }
+
+  body{
+    padding-bottom: 4rem;
   }
 }
 
@@ -147,7 +145,7 @@ img{
 
 #play{
   position: absolute;
-  top:95%;
+  top:102%;
   left:2%;
   color: #fafafa;
   pointer-events: auto;
@@ -270,14 +268,14 @@ img{
 
 #door{
   width: 12.7%;
-  top: 30.3%;
+  top: 29.3%;
   left: 8.5%;
   pointer-events: auto;
 }
 
 .closet{
   width: 24.8%;
-  top: 11.2%;
+  top: 8.2%;
   left: 38%;
   pointer-events: auto;
 }
@@ -285,7 +283,7 @@ img{
 .seat{
   width: 14.5%;
   left : 52%;
-  top : 67%;
+  top : 67.8%;
 }
 
 .pc{
@@ -309,17 +307,17 @@ img{
 
 .tv{
   width: 10.5%;
-  top:43%;
+  top:43.5%;
   left: 26%;
   pointer-events:auto;
 }
 
 iframe{
   position: absolute;
-  transform: scaleY(1.3) skewY(-22deg);
+  transform: skewY(-22.5deg);
   width: 9.5%;
-  height: 6%;
-  top: 46.8%;
+  height: 7%;
+  top: 50.7%;
   left: 26.5%;
 }
 
@@ -344,7 +342,7 @@ iframe{
 
 #book{
   width: 2.6%;
-  top:53%;
+  top:54.2%;
   left:90%;
 }
 
@@ -388,13 +386,13 @@ iframe{
 #pc_down{
   width: 16.4%;
   z-index: 1;
-  top: 46.4%;
+  top: 45%;
   left: 49.3%;
 }
 
 #read{
   width: 23.5%;
-  left: 68%;
+  left: 68.5%;
   top:43.5%;
 }
 
@@ -406,7 +404,7 @@ iframe{
 
 #read_down{
   width: 25.4%;
-  left: 67%;
+  left: 68%;
   top:42.6%;
 }
 
@@ -437,14 +435,14 @@ iframe{
 
 #syugei_up{
   width: 24.5%;
-  top: 46.5%;
+  top: 45%;
   left: 41%;
   z-index: 1;
 }
 
 #syugei_down{
   width: 24.5%;
-  top: 46.7%;
+  top: 45%;
   left: 41%;
   z-index: 1;
 }
