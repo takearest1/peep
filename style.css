@@ -474,40 +474,6 @@ iframe{
   left: 18%;
 }
 
-/*@media only screen and (min-width: 960px) {
-  #character1 {
-      width: 79.2px;
-  }
-
-  #character {
-    width: 79.2px;
-  }
-
-  #read{
-    width: 195.6px;
-    left: 636px;
-    top:444px;
-  }
-
-  #sleep{
-    width: 295.8px;
-    left: 546px;
-    top:462px;
-  }
-
-  #g_chara{
-    width: 144px;
-    top: 654px;
-    left: 480px;
-  }
-
-  #sumaho{
-    width: 115.2px;
-    top:444px;
-    left: 660px;
-  }
-}*/
-
 
 /*//////ヘルプ///////*/
 #container2{
@@ -519,29 +485,31 @@ iframe{
 }
 
 #help{
-  padding-top: 2rem;
   position: relative;
   margin: 0 auto;
-  width: 800px;
-  height: 800px;
-  padding-bottom: 50px;
-  margin: 0 auto;
+  width: 93vh;
+  height: 93vh;
 
   display: none;
   z-index: 9;
 }
 
-#h_bg{
-  position: relative;
-  width: 100%;
-  height: auto;
+@media only screen and (max-width: 960px) {
+  #help{
+    height: 800px;
+    width: 800px;
+  }
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (max-height: 900px) {
   #help{
-    height: 93vh;
-    width: 93vh;
+    height: 800px;
+    width: 800px;
   }
+}
+
+#h_bg{
+  width: 100%;
 }
 
 #help div{
@@ -562,14 +530,13 @@ iframe{
 
 #help #toha{
   padding-left: 120px;
-  margin-bottom: 8%;
+  margin-bottom: 80px;
 }
 
 #h_title{
-  position: absolute;
   width: 70px;
   left: 45%;
-  top: 23%;
+  top: 20%;
 }
 
 #h_hover{
