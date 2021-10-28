@@ -145,6 +145,29 @@ function haikei(){
     }
   }
 
+  else{//晴れ、くもり、雨以外の天気になった時にひとまず晴れさせとく
+    weather_dark = 0;
+    win_tenki = '.png';
+    if(6 <= th && th <= 11){
+      bg_color = 'bedcde';
+      sun.style.opacity = '1';
+      moon.style.opacity = '0';
+    }else if(12 <= th && th <= 16){
+      bg_color = '97d2e2';
+      sun.style.opacity = '1';
+      moon.style.opacity = '0';
+    }else if(17 <= th && th <= 18){
+      bg_color = 'ed9056';
+      sun.style.opacity = '0';
+      moon.style.opacity = '0';
+    }else{
+      bg_color = '3b3b45';
+      sun.style.opacity = '0';
+      moon.style.opacity = '1';
+    }
+  }
+  
+
   bg.style.backgroundColor = '#' + bg_color;
 
   if(6 <= th && th <= 11){
@@ -164,7 +187,7 @@ function haikei(){
     ie.style.opacity = '1';
     ie.style.backgroundImage = "url(images/ie_e.png)";
     zimen.style.backgroundColor = '#54565F';
-      zimen.style.opacity = '1';
+    zimen.style.opacity = '1';
     grid.style.opacity = '0.1';
   }else{
     win.setAttribute('src', 'images/win_ni' + win_tenki);
