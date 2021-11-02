@@ -26,29 +26,7 @@ $(function(){
   $('.tv').click( function tv(){
     console.log(dark);
       if(t_flag == false){
-        if(t_random == 1){
-          $('#t_monitor').html('<img src="images/t_on.gif" class="tv">');
-          $('#play').html('');
-        }else if(t_random == 2){
-          $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/ja5nlnwUHiQ?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-          $('#play').html('♪ 蛙の声と焚火<a href="https://youtu.be/ja5nlnwUHiQ" target="_blank">https://youtu.be/ja5nlnwUHiQ<i class="fas fa-external-link-alt"></i></a>');
-        }else if(t_random == 3){
-          $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/4AtJV7U3DlU?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-          $('#play').html('♪ FLYING OVER OAHU [4K] Hawaii Ambient Aerial Film + Music for Stress Relief - Honolulu to North Shore<a href="https://youtu.be/4AtJV7U3DlU" target="_blank">https://youtu.be/4AtJV7U3DlU<i class="fas fa-external-link-alt"></i></a>');
-        }else if(t_random == 4){
-          $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/OqY9Frh3t3I?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-          $('#play').html('♪ サルデーニャ島編 | 世界ねこ散歩～イタリア～ (アニマルプラネット)<a href="https://youtu.be/OqY9Frh3t3I" target="_blank">https://youtu.be/OqY9Frh3t3I<i class="fas fa-external-link-alt"></i></a>');
-        }else if(t_random == 5){
-          $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/48-RA4BNXVc?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-          $('#play').html('♪ 鴨が好き/ I like ducks<a href="https://youtu.be/48-RA4BNXVc" target="_blank">https://youtu.be/48-RA4BNXVc<i class="fas fa-external-link-alt"></i></a>');
-        }else if(t_random == 6){
-          $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/PrIwKj46I-Y?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-          $('#play').html('♪ 大量発生のウニ…廃棄野菜で“絶品”に変身　『the SOCIAL』傑作選（2019年11月19日放送より）<a href="https://youtu.be/PrIwKj46I-Y" target="_blank">https://youtu.be/PrIwKj46I-Y<i class="fas fa-external-link-alt"></i></a>');
-        }else if(t_random == 7){
-          $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/gZBh00N5Qp0?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-          $('#play').html('♪ レゴで作る日本の朝ごはん - ストップモーション料理 & ASMR<a href="https://youtu.be/gZBh00N5Qp0" target="_blank">https://youtu.be/gZBh00N5Qp0<i class="fas fa-external-link-alt"></i></a>');
-        }
-
+        channel();
         t_flag = true;
       }else{
         $('#t_monitor').html('<img src="images/t_off.png" class="tv dark" style="filter:britress(' + dark + ');">');
@@ -56,6 +34,22 @@ $(function(){
         $('.tv').css('filter','brightness(' + dark + '%)');
       }
     console.log(dark);
+  });
+
+  $('#rimokon').click(function () {
+    t_random = t_random + 1;
+    channel();
+    t_flag = true;
+    if(t_random == 8){
+      $('#t_monitor').html('<img src="images/t_off.png" class="tv dark" style="filter:britress(' + dark + ');">');
+      t_flag = false;
+      $('.tv').css('filter','brightness(' + dark + '%)');
+      t_flag = false;
+    }else if(t_random == 9){
+      t_random = 1;
+      channel();
+    };
+    console.log(t_random);
   });
 
   $('#switch').click(function () {
@@ -128,6 +122,31 @@ $(function(){
     }
   });
 });
+
+function channel() {
+  if(t_random == 1){
+    $('#t_monitor').html('<img src="images/t_on.gif" class="tv">');
+    $('#play').html('');
+  }else if(t_random == 2){
+    $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/ja5nlnwUHiQ?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    $('#play').html('♪ 蛙の声と焚火<a href="https://youtu.be/ja5nlnwUHiQ" target="_blank">https://youtu.be/ja5nlnwUHiQ<i class="fas fa-external-link-alt"></i></a>');
+  }else if(t_random == 3){
+    $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/4AtJV7U3DlU?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    $('#play').html('♪ FLYING OVER OAHU [4K] Hawaii Ambient Aerial Film + Music for Stress Relief - Honolulu to North Shore<a href="https://youtu.be/4AtJV7U3DlU" target="_blank">https://youtu.be/4AtJV7U3DlU<i class="fas fa-external-link-alt"></i></a>');
+  }else if(t_random == 4){
+    $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/OqY9Frh3t3I?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    $('#play').html('♪ サルデーニャ島編 | 世界ねこ散歩～イタリア～ (アニマルプラネット)<a href="https://youtu.be/OqY9Frh3t3I" target="_blank">https://youtu.be/OqY9Frh3t3I<i class="fas fa-external-link-alt"></i></a>');
+  }else if(t_random == 5){
+    $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/48-RA4BNXVc?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    $('#play').html('♪ 鴨が好き/ I like ducks<a href="https://youtu.be/48-RA4BNXVc" target="_blank">https://youtu.be/48-RA4BNXVc<i class="fas fa-external-link-alt"></i></a>');
+  }else if(t_random == 6){
+    $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/PrIwKj46I-Y?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    $('#play').html('♪ 大量発生のウニ…廃棄野菜で“絶品”に変身　『the SOCIAL』傑作選（2019年11月19日放送より）<a href="https://youtu.be/PrIwKj46I-Y" target="_blank">https://youtu.be/PrIwKj46I-Y<i class="fas fa-external-link-alt"></i></a>');
+  }else if(t_random == 7){
+    $('#t_monitor').html('<iframe width="560" height="315" src="https://www.youtube.com/embed/gZBh00N5Qp0?controls=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+    $('#play').html('♪ レゴで作る日本の朝ごはん - ストップモーション料理 & ASMR<a href="https://youtu.be/gZBh00N5Qp0" target="_blank">https://youtu.be/gZBh00N5Qp0<i class="fas fa-external-link-alt"></i></a>');
+  }
+}
 
 $(function() {
   $('#door').hover(function() {
