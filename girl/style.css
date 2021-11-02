@@ -98,6 +98,7 @@ img{
 }
 
 #title{
+  margin-top: 0;
   width: 13.5%;
   top:9%;
   left: 14%;
@@ -188,6 +189,7 @@ img{
 }
 
 .zoom{
+  margin-top: 0;
   width: 30px;
   z-index: 100;
   position: fixed;
@@ -314,11 +316,12 @@ img{
 
 iframe{
   position: absolute;
-  transform: skewY(-22.5deg);
+  transform: scaleY(1.3) skewY(-22.5deg);
   width: 9.5%;
   height: 7%;
-  top: 50.7%;
+  top: 47.3%;
   left: 26.5%;
+  margin-top:2rem;
 }
 
 #switch{
@@ -350,6 +353,7 @@ iframe{
   width: 4.6%;
   top: 63%;
   left: 53%;
+  pointer-events: auto;
 }
 
 #cloth{
