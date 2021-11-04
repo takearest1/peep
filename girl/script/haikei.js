@@ -53,7 +53,31 @@ var weather_dark = 0;
 
 var weather_f = false;
 
+var moon_img;
+
 function haikei(){
+  moonage = 15;
+  if(moonage > 28 || moonage < 1){
+    moon_img = 8;
+  }else if(moonage < 5){
+    moon_img = 1;
+  }else if(moonage < 9){
+    moon_img = 2;
+  }else if(moonage < 13){
+    moon_img = 3;
+  }else if(moonage < 16){
+    moon_img = 4;
+  }else if(moonage < 19){
+    moon_img = 5;
+  }else if(moonage < 23){
+    moon_img = 6;
+  }else if(moonage < 27){
+    moon_img = 7;
+  };
+  //console.log(moon_img);
+  $('#moon').attr('src', '../images/moon/moon' + moon_img + '.png');
+
+
   bg = document.body;
   sun = document.getElementById('sun');
   moon = document.getElementById('moon');
@@ -166,7 +190,7 @@ function haikei(){
       moon.style.opacity = '1';
     }
   }
-  
+
 
   bg.style.backgroundColor = '#' + bg_color;
 
@@ -208,3 +232,86 @@ function haikei(){
   rain.style.width = z_width + 'px';
   rain.style.height = (z_height + (375.5 * w)) + 'px';
 };
+
+
+/*///////月/////////*/
+/*
+   新月日計算
+   引数  　julian  ユリウス通日
+   戻り値  与えられたユリウス通日に対する直前の新月日(ユリウス日)
+*/
+function getNewMoon(julian) {
+  var k     = Math.floor((julian - 2451550.09765) / 29.530589);
+  var t     = k / 1236.85;
+  var nmoon = 2451550.09765
+             + 29.530589  * k
+             +  0.0001337 * t * t
+             -  0.40720   * Math.sin((201.5643 + 385.8169 * k) * 0.017453292519943)
+             +  0.17241   * Math.sin((2.5534 +  29.1054 * k) * 0.017453292519943);
+  return (nmoon);         // julian - nmoonが現在時刻の月齢
+}
+
+/*
+    ユリウス通日計算
+    引数　　時刻(Dateオブジェクト)
+    戻り値　ユリウス通日(浮動小数点数)
+*/
+function getJulian(date) {
+  return date.getTime() / 86400000.0+2440587.5;
+}
+
+/*
+    0,1,2,3 ... を 00,01,02,03 ... に。
+   （変な関数名だ）
+*/
+function maeZero(num){
+  if (num < 10){
+    return '0' + num;
+  } else {
+    return num;
+  }
+}
+
+
+/*
+    メイン処理
+*/
+
+var moonage;//月齢
+
+var appName  = navigator.appName.charAt(0);
+var appVer   = navigator.appVersion.charAt(0);
+
+var nowDate   = new Date();
+
+julian = getJulian(nowDate);
+
+var nmoon = getNewMoon(julian);
+// getNewMoonは新月直前の日を与えるとうまく計算できないのでその対処
+// (一日前の日付で再計算してみる)
+if (nmoon > julian) {
+   nmoon = getNewMoon(julian - 1.0);
+}
+
+var age     = julian - nmoon;         // julian - nmoonが現在時刻の月齢
+
+if(appName == "N" && appVer == "2") {
+    moonage = age;
+} else {
+    moonage = new String(age);
+}
+
+// 月齢を表示用に編集（小数以下第一位まで表示）
+// でもこんな回りくどいことをしなくてもいいような気が。。。。
+if (age >= 0) {
+  moonage = moonage + ".0";     // 小数部が0の時に備えた処理
+  if (moonage.charAt(0) == ".") { // 整数部が飛ばされたときの処理
+    moonage = "0" + moonage;
+  }
+  if(age >= 10) {
+    moonage = moonage.substring(0,4);
+  } else {
+    moonage = moonage.substring(0,3);
+  }
+  console.log(moonage);
+}
