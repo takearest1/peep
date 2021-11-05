@@ -44,7 +44,7 @@ function AnimateElement(){
   //////男の子の表示
   //random = 4;
   var chara = document.getElementById('chara');
-  if(th < 7){
+  if(th < 6){
     random = 6;
     sleep();
   }else{
