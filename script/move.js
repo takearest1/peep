@@ -2,7 +2,7 @@ var random2;
 var walking = 2200;
 $(function () {
   setInterval(function () {
-    if(th > 7){
+    if(th > 6){
       move();
     };
   },30000);//移動までの間
