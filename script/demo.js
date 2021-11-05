@@ -2,7 +2,6 @@ var time_demo;
 var demo_flag = false;
 
 $(function(){
-  console.log("aaa");
   $('#image').append('<img src="images/weather.png" id="demo_weather" class="demo_icon hover">');
   $('#image').append('<img src="images/time.png" id="demo_time" class="demo_icon hover">');
 
@@ -41,7 +40,7 @@ $(function(){
       th = 6;
     }
     console.log(s_flag);
-    if(s_flag == false){
+    if(s_flag == true){
       syoumei_off();
     }else{
       syoumei_on();
