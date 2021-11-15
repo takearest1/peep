@@ -6,7 +6,7 @@ var syugei_f = false;
 //var yoru = document.getElementsByClassName("dark");
 var g_flag = false;//バグを潰すようフラグ
 
-function syugei(){
+function game_syugei(){
   if(syugei_f == false){
     chara.innerHTML = '<img id="syugei" class="dark character" src="images/syugei.gif">';
     $('#cloth').css('opacity','0');
