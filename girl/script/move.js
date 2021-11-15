@@ -20,19 +20,19 @@ function move() {
     }
 
     ///////立ち上がる動作
-    chara.innerHTML = '<img id="pc_up" class="dark character" src="images/pc_up.gif?' +(new Date).getTime()+ '">';
+    chara.innerHTML = '<img id="pc_up" class="dark character" src="images/pc_up.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
     setTimeout(function () {
-      pm.innerHTML = '<img class="temae pc dark" id="pc" src="images/p_off.png">';
+      pm.innerHTML = '<img class="temae pc dark" id="pc" src="images/p_off.png" style="filter: brightness(' + dark + '%);">';
       p_flag = false;
       random = 0;
 
     },400);
     setTimeout(function () {
       if(random2 == 6 && s_flag == false){
-        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
         $("#character").css({'top':'50%','left':'50%','z-index':'1'});//スタート地点
       }else{
-        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk1.gif"></div>';
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk1.gif" style="filter: brightness(' + dark + '%);"></div>';
         $("#character").css({'top':'50%','left':'52%','z-index':'1','transform':'scale(-1, 1)'});//スタート地点
       }
 
@@ -41,7 +41,7 @@ function move() {
       $('#character')
         .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
         setTimeout(function () {
-            chara.innerHTML = '<img id="read_down" class="dark character" src="images/read_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="read_down" class="dark character" src="images/read_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             $("#book").css('opacity', '0');
             setTimeout(function () {
               random = 3;
@@ -55,7 +55,7 @@ function move() {
       $('#character')
         .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
         setTimeout(function () {
-            chara.innerHTML = '<img id="sumaho_down" class="dark character" src="images/sumaho_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="sumaho_down" class="dark character" src="images/sumaho_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             setTimeout(function () {
               random = 5;
               sumaho_f = false;
@@ -77,12 +77,12 @@ function move() {
             $('#character')
               .animate({'top':'42%','left':'18%'},3000);
             setTimeout(function () {
-              chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '">';
+              chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
               setTimeout(function () {
                 syoumei_off();
               },500)
               setTimeout(function () {
-                chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+                chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
                 $('#character').css({'top':'42%','left':'18%','transform':'scale(-1,1)','z-index':'1'},2200);
                 $('#character')
                   .animate({'top':'57.5%','left':'40%'},3000);
@@ -98,7 +98,7 @@ function move() {
         };
 
         setTimeout(function () {
-            chara.innerHTML = '<img id="sleep_down" class="dark character" src="images/sleep_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="sleep_down" class="dark character" src="images/sleep_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             $("#futon").css('opacity', '0');
             setTimeout(function () {
               random = 6;
@@ -120,9 +120,9 @@ function move() {
     }
 
     ///////立ち上がる動作
-    chara.innerHTML = '<img id="read_up" class="dark character" src="images/read_up.gif?' +(new Date).getTime()+ '">';
+    chara.innerHTML = '<img id="read_up" class="dark character" src="images/read_up.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
     setTimeout(function () {
-      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
       $("#character").css({'top':'40%','left':'66.9%','z-index':'1'});//スタート地点
       $("#book").css('opacity', '1');
 
@@ -131,7 +131,7 @@ function move() {
         $('#character')
           .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
         setTimeout(function () {
-            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             setTimeout(function () {
               random = 2;
               pc_f = false;
@@ -145,12 +145,12 @@ function move() {
         $('#character')
           .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
         setTimeout(function () {
-            chara.innerHTML = '<img id="syugei_down" class="dark character" src="images/syugei_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="syugei_down" class="dark character" src="images/syugei_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             $("#cloth").css('opacity', '0');
             setTimeout(function () {
               random = 4;
               syugei_f = false;
-              syugei();
+              game_syugei();
             },3500);//座るのにかかる時間
         },2000);//移動にかかる時間
       };
@@ -167,15 +167,15 @@ function move() {
     }
 
     ///////立ち上がる動作
-    chara.innerHTML = '<img id="syugei_up" class="dark character" src="images/syugei_up.gif?' +(new Date).getTime()+ '">';
+    chara.innerHTML = '<img id="syugei_up" class="dark character" src="images/syugei_up.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
       random = 0;
     setTimeout(function () {
       $("#cloth").css('opacity', '1');
       if(random2 == 6 && s_flag == false){
-        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
         $("#character").css({'top':'50%','left':'50%','z-index':'1'});//スタート地点
       }else{
-        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk1.gif"></div>';
+        chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk1.gif" style="filter: brightness(' + dark + '%);"></div>';
         $("#character").css({'top':'50%','left':'50%','z-index':'1','transform':'scale(-1, 1)'});//スタート地点
       }
 
@@ -185,7 +185,7 @@ function move() {
       $('#character')
         .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
         setTimeout(function () {
-            chara.innerHTML = '<img id="read_down" class="dark character" src="images/read_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="read_down" class="dark character" src="images/read_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             $("#book").css('opacity', '0');
             setTimeout(function () {
               random = 3;
@@ -199,7 +199,7 @@ function move() {
       $('#character')
         .animate({'top':'40%','left':'66.9%'},2200);//ゴール地点
         setTimeout(function () {
-            chara.innerHTML = '<img id="sumaho_down" class="dark character" src="images/sumaho_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="sumaho_down" class="dark character" src="images/sumaho_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             setTimeout(function () {
               random = 5;
               sumaho_f = false;
@@ -222,12 +222,12 @@ function move() {
             $('#character')
               .animate({'top':'42%','left':'18%'},3000);
             setTimeout(function () {
-              chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '">';
+              chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
               setTimeout(function () {
                 syoumei_off();
               },500)
               setTimeout(function () {
-                chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+                chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
                 $('#character').css({'top':'42%','left':'18%','transform':'scale(-1,1)','z-index':'1'},2200);
                 $('#character')
                   .animate({'top':'57.5%','left':'40%'},3000);
@@ -243,7 +243,7 @@ function move() {
         };
 
         setTimeout(function () {
-            chara.innerHTML = '<img id="sleep_down" class="dark character" src="images/sleep_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="sleep_down" class="dark character" src="images/sleep_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             $("#futon").css('opacity', '0');
             setTimeout(function () {
               random = 6;
@@ -264,9 +264,9 @@ function move() {
     }
 
     ///////立ち上がる動作
-    chara.innerHTML = '<img id="sumaho_up" class="dark character" src="images/sumaho_up.gif?' +(new Date).getTime()+ '">';
+    chara.innerHTML = '<img id="sumaho_up" class="dark character" src="images/sumaho_up.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
     setTimeout(function () {
-      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
       $("#character").css({'top':'40%','left':'66%','z-index':'1'});//スタート地点
 
       ///////スマホから立った後の動作
@@ -274,7 +274,7 @@ function move() {
         $('#character')
           .animate({'top':'45%','left':'60%'},1000);//ゴール地点 //移動にかかる時間
         setTimeout(function () {
-            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             setTimeout(function () {
               random = 2;
               pc_f = false;
@@ -288,12 +288,12 @@ function move() {
           $('#character')
             .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
           setTimeout(function () {
-              chara.innerHTML = '<img id="syugei_down" class="dark character" src="images/syugei_down.gif?' +(new Date).getTime()+ '">';
+              chara.innerHTML = '<img id="syugei_down" class="dark character" src="images/syugei_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
               $("#cloth").css('opacity', '0');
               setTimeout(function () {
                 random = 4;
                 syugei_f = false;
-                syugei();
+                game_syugei();
               },3500);//座るのにかかる時間
           },2000);//移動にかかる時間
         };
@@ -309,9 +309,9 @@ function move() {
     }
 
     ///////立ち上がる動作
-    chara.innerHTML = '<img id="sleep_up" class="dark character" src="images/sleep_up.gif?' +(new Date).getTime()+ '">';
+    chara.innerHTML = '<img id="sleep_up" class="dark character" src="images/sleep_up.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
     setTimeout(function () {
-      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+      chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
       $("#futon").css('opacity', '1');
       $("#character").css({'top':'40%','left':'68.7%','z-index':'1'});//スタート地点
 
@@ -323,12 +323,12 @@ function move() {
           $('#character')
             .animate({'top':'42%','left':'18%'},3000);
           setTimeout(function () {
-            chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="syomei" class="dark character" src="images/syomei.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             setTimeout(function () {
               syoumei_on();
             },500)
             setTimeout(function () {
-              chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif"></div>';
+              chara.innerHTML = '<div id="walk"><img id="character" class="dark character" src="images/walk2.gif" style="filter: brightness(' + dark + '%);"></div>';
               $('#character').css({'top':'42%','left':'18%','transform':'scale(-1,1)','z-index':'1'},2200);
               $('#character')
                 .animate({'top':'57.5%','left':'40%'},3000);
@@ -349,7 +349,7 @@ function move() {
         $('#character')
           .animate({'top':'45%','left':'60%'},1500);//ゴール地点 //移動にかかる時間
         setTimeout(function () {
-            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="pc_down" class="dark character" src="images/pc_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             setTimeout(function () {
               random = 2;
               pc_f = false;
@@ -363,12 +363,12 @@ function move() {
         $('#character')
           .animate({'top':'45%','left':'60%'},2000);//ゴール地点 //移動にかかる時間
         setTimeout(function () {
-            chara.innerHTML = '<img id="syugei_down" class="dark character" src="images/syugei_down.gif?' +(new Date).getTime()+ '">';
+            chara.innerHTML = '<img id="syugei_down" class="dark character" src="images/syugei_down.gif?' +(new Date).getTime()+ '" style="filter: brightness(' + dark + '%);">';
             $("#cloth").css('opacity', '0');
             setTimeout(function () {
               random = 4;
               syugei_f = false;
-              syugei();
+              game_syugei();
             },3500);//座るのにかかる時間
         },2000);//移動にかかる時間
       };
