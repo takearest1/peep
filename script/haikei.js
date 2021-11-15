@@ -30,7 +30,7 @@ fetch(url)
             kazoeru();
           }else{
             tenki_ = tenki.slice(0 , count - 2);
-            //tenki_ = "晴れ";//くもりで固定 後で絶対消すやつ
+            tenki_ = "雪";//くもりで固定 後で絶対消すやつ
 
 
           }
