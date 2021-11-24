@@ -36,10 +36,17 @@ function re(){
   read_f = false;
   sleep_f = false;
   syugei_f = false;
+  closet = false;
+  thisCount = 0;
+  curtain_dark = 0;
+  curtain = false;
+
   $("#book").css('opacity', '1');
   $("#futon").css('opacity', '1');
   $("#game_rimokon").css('opacity', '1');
   $("#mouse").css('opacity', '1');
+  $('.closet').attr('src', 'images/closet.png');
+  $('#curtain').attr('src', 'images/curtain.png');
 
 
   p_flag = false;
