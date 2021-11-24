@@ -9,6 +9,8 @@ var s_flag = false;//false = 明るい
 var dark = 100;
 var imgwid;
 var t_random = Math.floor(Math.random()* (8 - 1) + 1);
+var closet = false;
+var curtain = false;
 var curtain_dark = 0;
 
 $(function(){
@@ -73,7 +75,7 @@ $(function(){
     }
   });
 
-  var closet = false;
+
   $('.closet').click( function(){
     if(closet == false){
       $('.closet').attr('src', 'images/closet_open.gif');
@@ -86,7 +88,7 @@ $(function(){
     };
   });
 
-  var curtain = false;
+
   $('#curtain').click( function(){
     if(curtain == false){
       $('#curtain').attr('src', 'images/curtain_close.gif');
