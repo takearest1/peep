@@ -6,6 +6,7 @@
 var random = Math.floor(Math.random()* (7 - 1) + 1);
 //var random = 5;
 var t, th, tm;
+var demo_flag = false;
 //var w = 1;
 
 window.onload = function(){
