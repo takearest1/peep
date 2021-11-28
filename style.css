@@ -112,8 +112,8 @@ img{
 #title{
   margin-top: 0;
   width: 13.5%;
-  top:9%;
-  left: 14%;
+  top:7%;
+  left: 10%;
 }
 
 .sora{
@@ -134,8 +134,8 @@ img{
 
 #reload{
   width: 8%;
-  top:86%;
-  left: 1%;
+  top:89%;
+  left: 6%;
   pointer-events:auto;
 }
 
@@ -146,8 +146,8 @@ img{
 
 #help_btn{
   width: 8%;
-  top:86%;
-  left: 10%;
+  top:89%;
+  left: 15%;
   pointer-events:auto;
 }
 
@@ -181,9 +181,9 @@ img{
 }
 
 #clock img{
-  width: 19%;
-  top:78%;
-  left: 73%;
+  width: 18%;
+  top:82%;
+  left: 78%;
   opacity: 0.8;
 }
 
