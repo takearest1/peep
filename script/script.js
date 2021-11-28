@@ -57,7 +57,8 @@ function animation() {
     sleep();
   }else{
     if(random == 1){
-      re();
+      random = Math.floor(Math.random()* (7 - 1) + 1);
+      animation();
     }else if(random == 2){
       pc();
     }else if(random == 3){
