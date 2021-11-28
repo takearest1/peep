@@ -10,7 +10,7 @@ var random2 = 3;
 var walking = 2200;
 var move_setInterval;
 $(function () {
-  move_setInterval = setInterval(move_set,20000);//移動までの間
+  move_setInterval = setInterval(move_set,30000);//移動までの間
 
 });
 
