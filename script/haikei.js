@@ -58,7 +58,7 @@ var weather_f = false;
 var moon_img;
 
 function haikei(){
-  if(moonage > 28 || moonage < 1){
+  if(moonage > 27 || moonage < 1){
     moon_img = 8;
   }else if(moonage < 5){
     moon_img = 1;
@@ -208,12 +208,14 @@ function haikei(){
 
   if(6 <= th && th <= 11){
     win.setAttribute('src', 'images/win_m' + win_tenki);
+    ie.style.backgroundImage = "url(images/ie.png)";
     ie.style.opacity = '0.4';
     zimen.style.backgroundColor = '#fff';
     zimen.style.opacity = '0.4';
     grid.style.opacity = '0.08';
   }else if(12 <= th && th <= 16){
     win.setAttribute('src', 'images/win_no' + win_tenki);
+    ie.style.backgroundImage = "url(images/ie.png)";
     ie.style.opacity = '0.5';
     zimen.style.backgroundColor = '#fff';
     zimen.style.opacity = '0.5';
