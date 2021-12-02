@@ -6,7 +6,6 @@ function re(){
   tenki_ = tenki.slice(0 , count - 2);
   console.log(tenki_);
   demo_flag = false;
-  haikei();
   th = t.getHours();
   clearInterval(move_setInterval);
   move_setInterval = setInterval(move_set,30000);
