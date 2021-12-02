@@ -227,6 +227,22 @@ img{
   right: 30px;
 }
 
+.demo_icon{
+  width: 50px;
+  bottom: 20px;
+  position: fixed;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+#demo_weather{
+  right: 20px;
+}
+
+#demo_time{
+  right: 80px;
+}
+
 
 
 @media only screen and (max-width: 800px) {/*////スマホ用/////*/
@@ -266,6 +282,14 @@ img{
     top: auto;
     bottom: 20px;
     z-index: 10;
+  }
+
+  #demo_weather{
+    right: 120px;
+  }
+
+  #demo_time{
+    right: 180px;
   }
 
 }
