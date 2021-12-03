@@ -47,6 +47,8 @@ function re(){
   $('.closet').attr('src', 'images/closet.png');
   $('#curtain').attr('src', 'images/curtain.png');
 
+  $('#where').html('現在の福岡');
+
 
   p_flag = false;
   t_flag = false;
