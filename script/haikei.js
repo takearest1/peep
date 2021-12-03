@@ -110,6 +110,7 @@ function haikei(){
     rain.style.backgroundImage = "url()";
     win_rain.setAttribute('src', '');
     weather_f = false;
+    $('#weaher').html('晴れ');
     if(6 <= th && th <= 11){
       bg_color = 'bedcde';
       sun.style.opacity = '1';
@@ -136,6 +137,7 @@ function haikei(){
     $('#win_rain').css('opacity','0');
     rain.style.backgroundImage = "url()";
     win_rain.setAttribute('src', '');
+    $('#weaher').html('くもり');
     if(6 <= th && th <= 11){
       bg_color = 'b4b7b8';
     }else if(12 <= th && th <= 16){
@@ -153,6 +155,7 @@ function haikei(){
     sun.style.opacity = '0';
     moon.style.opacity = '0';
     rain.style.backgroundImage = "url(images/rain.gif)";
+    $('#weaher').html('雨');
     if(weather_f == false){
       win_rain.setAttribute('src', 'images/win_rain.gif');
       weather_f = true;
@@ -184,6 +187,7 @@ function haikei(){
     $('#win_rain').css('opacity','0');
     rain.style.backgroundImage = "url()";
     win_rain.setAttribute('src', '');
+    $('#weaher').html('---');
     if(6 <= th && th <= 11){
       bg_color = 'bedcde';
       sun.style.opacity = '1';
