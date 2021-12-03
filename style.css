@@ -13,6 +13,7 @@
   pointer-events: none;
   cursor: url(images/cursor.png)6 6,auto;
   font-family: "HuiFont";
+  color: #fafafa;
 }
 
 .hover{
@@ -162,6 +163,7 @@ img{
   left:2%;
   color: #fafafa;
   pointer-events: auto;
+  font-size: 10px;
 }
 
 #play a{
@@ -228,19 +230,19 @@ img{
 }
 
 .demo_icon{
-  width: 50px;
-  bottom: 20px;
+  width: 45px;
+  top:-10px;
   position: fixed;
   pointer-events: auto;
   z-index: 10;
 }
 
 #demo_weather{
-  right: 20px;
+  right: 115px;
 }
 
 #demo_time{
-  right: 80px;
+  right: 160px;
 }
 
 
@@ -282,14 +284,6 @@ img{
     top: auto;
     bottom: 20px;
     z-index: 10;
-  }
-
-  #demo_weather{
-    right: 120px;
-  }
-
-  #demo_time{
-    right: 180px;
   }
 
 }
@@ -551,18 +545,18 @@ iframe{
 
 #help #toha{
   padding-left: 120px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 #h_title{
   width: 70px;
   left: 45%;
-  top: 20%;
+  top: 18%;
 }
 
 #h_hover{
   width: 200px;
-  left: 50%;
-  top: 68%;
+  left: 45%;
+  top: 75%;
   transform: translateX(-40%);
 }
