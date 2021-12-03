@@ -13,6 +13,7 @@
   pointer-events:none;
   cursor: url(images/cursor.png)6 6,auto;
   font-family: "HuiFont";
+  color: #fafafa;
 }
 
 .hover{
@@ -170,6 +171,7 @@ img{
   left:2%;
   color: #fafafa;
   pointer-events: auto;
+  font-size: 10px;
 }
 
 #play a{
@@ -233,6 +235,22 @@ img{
 
 #zoomout{
   right: 30px;
+}
+
+.demo_icon{
+  width: 45px;
+  top:-10px;
+  position: fixed;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+#demo_weather{
+  right: 115px;
+}
+
+#demo_time{
+  right: 160px;
 }
 
 @media only screen and (max-width: 800px) {/*////スマホ用/////*/
@@ -568,18 +586,18 @@ iframe{
 
 #help #toha{
   padding-left: 120px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 #h_title{
   width: 70px;
-  left: 35%;
-  top: -15%;
+  left: 42%;
+  top: 18%;
 }
 
 #h_hover{
   width: 200px;
-  left: 50%;
-  /*top: 68%;*/
+  left: 55%;
+  top: 75%;
   transform: translateX(-40%);
 }
