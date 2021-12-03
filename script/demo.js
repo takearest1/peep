@@ -5,17 +5,10 @@ $(function(){
   $('#image').append('<img src="images/weather.png" id="demo_weather" class="demo_icon hover">');
   $('#image').append('<img src="images/time.png" id="demo_time" class="demo_icon hover">');
 
-  $('.demo_icon').css({
-    'width':'50px',
-    'bottom':'20px',
-    'position':'fixed',
-    'pointer-events':'auto'
-  });
 
-  $('#demo_weather').css('right','20px');
-  $('#demo_time').css('right','80px');
 
   $('#demo_weather').click(function(){
+    $('#where').html('現在表示中');
     if(tenki_ == "晴れ"){
       tenki_ = "くもり";
     }else if(tenki_ == "くもり"){
