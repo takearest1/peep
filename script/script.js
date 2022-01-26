@@ -13,6 +13,7 @@ window.onload = function(){
   t = new Date();
   th = t.getHours();
   tm = t.getMinutes();
+  console.log(th,tm);
 
   animation();
 
